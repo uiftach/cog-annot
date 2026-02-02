@@ -1,0 +1,47 @@
+# INSTRUCTIONS
+
+Purpose: Describe step-by-step procedures, label schema, quality checks, and acceptance criteria for annotating cognitive task datasets.
+
+## Roles
+- Annotator: applies labels according to the schema and documents ambiguous cases.
+- Reviewer: spot-checks and resolves disagreements; updates label definitions.
+- Automation: runs prompts, records outputs, and tracks model/prompt versions.
+
+## Dataset preparation
+1. Collect raw items into a single `data/` or `inputs.jsonl` file; each item must include `id`, `text`, and optional `metadata` (JSON).
+2. Preprocess consistently (normalize whitespace, remove PII if required).
+3. Create a small gold set (50–200 items) with authoritative labels for QA.
+
+## Label schema (example)
+- `task_type`: one of `['memory', 'attention', 'response-inhibition', 'reasoning', 'other']`.
+- `label`: canonical outcome (e.g., `correct` / `incorrect` / `partial`).
+- `cognitive_processes`: list of tags (e.g., `['working_memory', 'inhibition']`).
+- `confidence`: numeric 0–1 assigned by annotator or model.
+- `notes`: free-text for edge cases.
+
+## Annotation format
+- Use JSONL with one JSON object per line. Example:
+  {"id":"item-001","text":"...","task_type":"memory","label":"correct","cognitive_processes":["working_memory"],"confidence":0.9,"annotator":"alice","timestamp":"2026-02-02T12:00:00Z"}
+
+## Annotation process
+1. Assign each item to two independent annotators where possible.
+2. Annotators follow label definitions and add `notes` for ambiguities.
+3. Run an automatic pass with curated prompts (document prompt version) to produce model labels for comparison.
+4. Reviewer adjudicates disagreements and updates the gold set.
+
+## Quality checks
+- Compute inter-annotator agreement (Cohen's kappa or Krippendorff's alpha) on a sample.
+- Automatic consistency checks (allowed `task_type` values, confidence bounds, required fields).
+- Periodic spot-checks against the gold set (target: >0.8 accuracy on gold).
+
+## Acceptance criteria
+- Gold-set accuracy ≥ 0.80 and inter-annotator kappa ≥ 0.6 for primary labels.
+- All items have required fields and pass schema validation.
+
+## Reproducibility & recordkeeping
+- Store `results/` with filenames indicating model, prompt, date, and seed (e.g., `gpt4o_v1_promptA_2026-02-02.jsonl`).
+- Record model version, prompt text, temperature/seed, and date in a `metadata.yaml` or `README` entry.
+
+## Notes
+- Keep label definitions short and concrete; update definitions promptly when reviewers find ambiguities.
+- For large-scale annotation, consider active sampling and progressive quality checks.
