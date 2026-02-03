@@ -1,13 +1,99 @@
-# cog-annot
+# Cog-Annot: Object-Centered Semantic Annotation System
 
-**Annotate cognitive task datasets with labels for model training.**
+A comprehensive annotation system for marking object-centered semantics in descriptive and technical texts, with support for temporal designators (TD), movement anchors (MOV), and human operations (PLACTAC).
 
 ## Overview
-cog-annot is a compact project of natural-language instructions, prompts, and procedures for labeling cognitive task datasets and producing reproducible model-training inputs.
 
-## Quickstart
-1. Add step-by-step procedures to `INSTRUCTIONS.md` (how to prepare data, label formats, quality checks).
-2. Add and curate prompts in `PROMPTS.md` and include example inputs/outputs.
+Cog-Annot is designed to annotate:
+- **Objects** and their relationships (Cog1, Cog1Ref, Cog5)
+- **Properties** and states (Cog2p, Cog2t)
+- **Spontaneous actions** (Cog2v)
+- **Parts** and products (Cog3Int, Cog3Der)
+- **Environments** and provenance (Cog4)
+- **Temporal designators** (TD_ABS, TD_REL, TD_DUR)
+- **Movement anchors** (MOV_SRC, MOV_DST, MOV_PATH)
+- **Human operations** (PLACTAC_STEP)
+
+## Core Principles
+
+1. **Surface fidelity** - Annotate only what is explicitly present
+2. **Minimal sufficiency** - Use fewest annotations needed
+3. **One label per token/phrase** - No double tagging
+4. **Object primacy** - System organized around objects, not events
+
+## Quick Start
+
+### Annotation Format
+```
+⟨CogType#track: text⟩
+```
+
+### Example
+```
+The ⟨Cog1#1: oak⟩ has ⟨Cog2p#1: hard⟩ ⟨Cog3Der#1: wood⟩ and grows in ⟨Cog4: mountains⟩.
+```
+
+## Key Distinctions
+
+### Cog2v vs PLACTAC
+- **Cog2v**: Spontaneous action BY the object (swims, flies, hunts)
+- **PLACTAC**: Intended operation ON the object by external force (cutting, harvesting)
+
+### Cog4 vs MOV
+- **Cog4**: Habitat/environment (lives in water)
+- **MOV**: Movement endpoint (swims to/from water)
+
+## Documentation
+
+- **[INSTRUCTIONS.md](INSTRUCTIONS.md)** - Complete annotation rules and guidelines
+- **[Aristoteles/HA/](Aristoteles/HA/)** - Example: Aristotle's Historia Animalium (Greek text)
+
+## Project Structure
+
+```
+cog-annot/
+├── INSTRUCTIONS.md              # Complete annotation rules
+├── README.md                    # This file
+├── Aristoteles/
+│   └── HA/
+│       └── HA raw text to 491.14.txt  # Annotated Greek text
+└── [Your texts here]/
+```
+
+## Contributing Your Own Texts
+
+1. Create a folder for your author/corpus
+2. Add your annotated text files
+3. Follow the annotation guidelines in INSTRUCTIONS.md
+4. Use the format: `⟨CogType#track: text⟩`
+
+## Track Numbering System
+
+- Track indices (e.g., `#1`, `#42`) identify unique objects throughout the text
+- Use dot notation for parts: `#track.subtrack` (e.g., `#10.1` for a part of object #10)
+- Generic objects can share tracks (e.g., all generic animals as `#1`)
+
+## Getting Started with Git
+
+To use this repository:
+
+1. **Install Git**: Download from [git-scm.com](https://git-scm.com/)
+2. **Clone the repository**: 
+   ```bash
+   git clone https://github.com/[username]/cog-annot.git
+   ```
+3. **Add your texts**: Create folders and annotate
+4. **Commit changes**:
+   ```bash
+   git add .
+   git commit -m "Add [your corpus name]"
+   git push
+   ```
+
+## System Version
+
+- Version: 2.0 (with Cog2v, PLACTAC, TD, MOV support)
+- Last updated: February 2026
 3. Run prompts against your model and store outputs in the `results/` folder with short notes.
 4. Track next tasks and priorities in `ROADMAP.md`.
 

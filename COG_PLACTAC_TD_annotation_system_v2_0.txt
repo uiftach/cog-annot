@@ -1,0 +1,74 @@
+COG / PLACTAC / TD ANNOTATION SYSTEM
+Rationale, Objectives, and Authoritative Specification (v2.0)
+Derived from applied work on Homeric epic and Theophrastus, Historia Plantarum
+I. RATIONALE OF THE SYSTEM
+The annotation system documented here was developed to model ancient descriptive language at the level of objects, processes, and their articulation, without importing modern theoretical categories or interpretive assumptions.
+The central intuition is that ancient technical and narrative texts describe the world primarily through objects and their observable properties, parts, and behaviors. The system therefore starts from the object and expands outward only when linguistically licensed.
+The system explicitly rejects:
+- event-centric narration as the primary unit of meaning
+- agent-centered intentional models
+- institutional or symbolic interpretations during annotation
+Instead, it aims to reconstruct the descriptive ontology implicit in the text itself.
+II. OBJECTIVES
+1. To capture how ancient authors classify and stabilize objects in language.
+2. To distinguish clearly between what an object *is*, what it *does by nature*, and what is *done to it*.
+3. To allow comparison across genres (epic, botanical, legal) without forcing conceptual harmonization.
+4. To produce annotations suitable for computational modeling, ontology construction, and rule-based reasoning.
+5. To keep annotation strictly descriptive and reproducible.
+III. THE COG SYSTEM (OBJECT LAYER)
+The Cog system encodes object-centered semantics. Each Cog category answers a distinct question about the object and must not overlap with others.
+III.1 Cog1 - Object / Entity
+Question: What thing is being spoken about?
+Cog1 identifies discrete entities treated as objects in the text. These may be natural objects (trees, plants, fruits), substances treated as causal entities (air), or recognized varieties.
+Diagnostic: Can this item exist independently as a thing?
+Examples: ???????, ?????, ?????, ???
+III.2 Cog1Ref - Reference Object
+Objects used purely for comparison of size, form, or appearance. They do not participate in the described situation.
+Examples: ??????, ?????, ??????
+III.3 Cog2p - Stable Descriptive Property
+Question: What is the object like?
+Cog2p captures stable, characterizing properties: color, size, form, texture, disposition. It may annotate adjectives, nouns used descriptively, or compact phrases.
+Examples: ???????, ?????, ???????????, ????????, ?? ???? ??????
+III.4 Cog2t - Transient State
+Temporary, non-permanent conditions of an object.
+Used sparingly, and only when the state is not encoded verbally.
+Examples: ???????, ?????
+III.5 Cog2v - Natural / Spontaneous Action
+Question: What does the object do by its own nature?
+Cog2v encodes processes undertaken spontaneously by the object itself, typically expressed by verbs or action-nouns.
+Examples: ??????????, ???????, ????, ??????????, ??????????, ??????
+Exclusions: copular verbs, generic verbs (?????, ?????????), relational verbs.
+III.6 Cog3Int - Intrinsic Part / Structure
+Question: What parts does the object have?
+Structural components belonging to the object.
+Examples: ??????, ???????, ??????, ??????, ??????????, ???????
+III.7 Cog3Der - Derived Product
+Products obtained through cutting, harvesting, or extraction, usually involving human action.
+Examples: ?????, ?????? (as harvested)
+III.8 Cog4 - Region / Environmental Provenance
+Geographical or environmental labels associated with objects.
+Examples: ???, ????????, ?????????, ????????, ???? ???????
+III.9 Cog5 - Relational / Systemic Object (latest form)
+Cog5 captures object-level relational constructs that are neither intrinsic parts nor properties, but stable systemic features recognized by the text.
+This category is restricted and introduced only when explicitly licensed.
+III.10 CogAff - Affective / Evaluative Overlay
+CogAff marks evaluative language that expresses perceived quality or effect, without introducing institutional or symbolic meaning.
+Used cautiously and never to override physical description.
+III.11 Sliding Cogs
+Sliding cogs allow controlled reassignment between Cog2p, Cog2t, and Cog2v when the same lexical item shifts between property, state, and action across contexts.
+Sliding is explicit and never implicit.
+IV. PLACTAC - Procedural / Human Operations
+PLACTAC encodes intentional human actions performed on objects.
+Includes: cutting, stripping, harvesting.
+Excludes: natural processes.
+Example: ?????????, ??????????????
+V. TD - Temporal Designation
+TD captures explicit temporal anchoring only.
+TD_ABS: months, seasons, astral events
+TD_DUR: durations
+TD_REL: relative qualifiers
+TD never implies causation or narrative order.
+VI. STABILITY AND USE
+This system is descriptive, not theoretical. Categories are justified only by textual behavior.
+The system is frozen at this version. Any extension requires explicit revision and versioning.
+This file is intended to be used verbatim as the normative reference in new annotation sessions.

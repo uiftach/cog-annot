@@ -1,11 +1,38 @@
+# OS files
 .DS_Store
 Thumbs.db
+desktop.ini
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python
 .venv/
 .env
 __pycache__/
 *.pyc
+
+# Logs
 results/
 *.log
-.vscode/
+
+# Node
 node_modules/
+
+# Temporary files
+*.tmp
+*.bak
+~*
+
+# Word documents (source files - we keep the .txt conversions)
+*.docx
+*.doc
+
+# Personal notes (optional - uncomment if needed)
+# notes/
+# scratch/
+
 .idea/

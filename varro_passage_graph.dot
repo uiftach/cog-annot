@@ -1,0 +1,54 @@
+digraph VarroKnowledgeGraph {
+    rankdir=TB;
+    node [shape=box, style="rounded,filled", fillcolor=lightblue, fontname=Arial];
+    edge [fontname=Arial, fontsize=10];
+
+    // Main object
+    solo_fundi [label="SOLO FUNDI\n(Cog1#1)\nSoil of the Estate", fillcolor=lightgreen];
+
+    // Intrinsic properties
+    forma [label="FORMA\n(Cog2p#1)\nForm/Shape", fillcolor=lightyellow];
+    genere_terrae [label="GENERE TERRAE\n(Cog3Int#1)\nType/Material of Earth", fillcolor=lightyellow];
+    quantus [label="QUANTUS\n(Cog2p#1)\nSize", fillcolor=lightyellow];
+    tutus [label="TUTUS\n(Cog2p#1)\nSafety/Security", fillcolor=lightyellow];
+
+    // Relations: properties of solo_fundi
+    solo_fundi -> forma [label="QUALIFIES"];
+    solo_fundi -> genere_terrae [label="PART_OF"];
+    solo_fundi -> quantus [label="QUALIFIES"];
+    solo_fundi -> tutus [label="QUALIFIES"];
+
+    // Two types of forma
+    natural_forma [label="NATURAL FORM\n(Origin: Natura)", fillcolor=lightcyan];
+    artificial_forma [label="ARTIFICIAL FORM\n(Origin: Sationes)", fillcolor=lightcyan];
+
+    forma -> natural_forma [label="exemplified by"];
+    forma -> artificial_forma [label="exemplified by"];
+
+    // Natural form examples
+    ager [label="AGER\n(Cog1#9)\nField", fillcolor=lightgreen];
+    ager_bene_natus [label="BENE NATUS\n(Cog2p#9)\nWell-born/Natural Good", fillcolor=lightyellow];
+    ager_male [label="MALE\n(Cog2p#9)\nPoorly-formed", fillcolor=lightyellow];
+
+    natural_forma -> ager [label="exemplified by"];
+    ager -> ager_bene_natus [label="QUALIFIES"];
+    ager -> ager_male [label="QUALIFIES (contrast)"];
+
+    // Artificial form examples
+    fundus [label="FUNDUS\n(Cog1#11)\nEstate", fillcolor=lightgreen];
+    fundus_bene_consitus [label="BENE CONSITUS\n(Cog2p#11)\nWell-arranged/Planted", fillcolor=lightyellow];
+    fundus_male [label="MALE\n(Cog2p#11)\nPoorly-arranged", fillcolor=lightyellow];
+
+    artificial_forma -> fundus [label="exemplified by"];
+    fundus -> fundus_bene_consitus [label="QUALIFIES"];
+    fundus -> fundus_male [label="QUALIFIES (contrast)"];
+
+    // Process creating artificial form
+    sationes_imponunt [label="SATIONES IMPONUNT\n(Cog2v)\nPlantings Impose [Form]", fillcolor=lightcoral];
+
+    sationes_imponunt -> artificial_forma [label="creates"];
+
+    // Legend
+    legend [label="Legend:\nCog1 (Objects) = Green\nCog2p/Cog3Int (Properties/Parts) = Yellow\nCog2v (Processes) = Red\nConcepts = Cyan", 
+            shape=note, fillcolor=white, style="filled"];
+}

@@ -35,10 +35,7 @@ Example: ?Cog2p: smooth?, ?Cog2p: hard?, ?Cog2p: vigorous?
 2.4 Cog2t - Transient State  
 Temporary, time-bound, or processual conditions. Used sparingly.  
 Example: ?Cog2t: unripe?, ?Cog2t: hollowing?
-2.4b Cog2v - Spontaneous Action  
-Operational actions that an object (Cog1, Cog3, Cog5) performs spontaneously by its own nature. This marks characteristic activities and behaviors of the object itself, not states, comparisons, or externally imposed operations.  
-Examples: ⟨Cog2v: swims⟩, ⟨Cog2v: flies⟩, ⟨Cog2v: hunts⟩, ⟨Cog2v: grazes⟩, ⟨Cog2v: walks⟩  
-Exclusions: Existential verbs (lives), comparative verbs (differs), passive processes (receives, is acted upon).
+
 2.5 Cog3Int - Intrinsic Part  
 Physical parts that belong structurally to an object.  
 Example: ?Cog3Int: leaf?, ?Cog3Int: bark?, ?Cog3Int: root?
@@ -82,17 +79,16 @@ Here, wood undergoes CogSlide from Cog3Der ? Cog1.
 4. PLACTAC - Human Operations
 
 4.1 Purpose  
-PLACTAC annotations mark explicit intended operations by external forces (typically humans) performed ON objects. This contrasts with Cog2v, which marks spontaneous actions by the object itself.
+PLACTAC annotations mark explicit human actions performed on objects.
 
 4.2 PLACTAC_STEP  
-Concrete, named operations performed by an external agent.  
-Examples: ⟨PLACTAC_STEP: cutting⟩; ⟨PLACTAC_STEP: building-use⟩; ⟨PLACTAC_STEP: selling⟩; ⟨PLACTAC_STEP: harvesting⟩
+Concrete, named operations.  
+Examples: ?PLACTAC_STEP: cutting?; ?PLACTAC_STEP: building-use?; ?PLACTAC_STEP: selling?
 
 4.3 Rules  
 Annotate only actions explicitly expressed.  
 Do not infer human agency unless named.  
-Do not attach PLACTAC to abstract verbs.  
-**Key distinction**: PLACTAC = intended operation BY external force; Cog2v = spontaneous action OF the object.
+Do not attach PLACTAC to abstract verbs.
 
 5. TD - Temporal Designators
 
