@@ -1,0 +1,24 @@
+digraph CogAnnot {
+  rankdir=TB;
+  node [shape=box, style=rounded];
+  graph [fontname="Arial", nodesep=0.5, ranksep=0.8];
+  node [fontname="Arial"];
+  edge [fontname="Arial"];
+
+  label="487b.15";
+  labelloc=t;
+  fontsize=16;
+
+  obj_66 [label="ὁλοθούρια", fillcolor="#FFE6E6", style="rounded,filled"];
+  obj_8 [label="ἰχθύες", fillcolor="#FFE6E6", style="rounded,filled"];
+  obj_67 [label="μαλάκια", fillcolor="#FFE6E6", style="rounded,filled"];
+  obj_68 [label="μαλακόστρακα", fillcolor="#FFE6E6", style="rounded,filled"];
+  obj_69 [label="κάραβοι", fillcolor="#FFE6E6", style="rounded,filled"];
+  obj_70 [label="καρκίνων", fillcolor="#FFE6E6", style="rounded,filled"];
+  prop_70_6 [label="ἔνυδρον", fillcolor="#E6F3FF", style="rounded,filled"];
+  obj_70 -> prop_70_6 [label="has property", color="#0066CC"];
+  state_70_7 [label="φύσιν", fillcolor="#FFF9E6", style="rounded,filled"];
+  obj_70 -> state_70_7 [label="in state", color="#CC9900"];
+  prop_70_8 [label="πορευτικόν", fillcolor="#E6F3FF", style="rounded,filled"];
+  obj_70 -> prop_70_8 [label="has property", color="#0066CC"];
+}
